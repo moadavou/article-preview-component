@@ -1,0 +1,5 @@
+.even-columns {
+    display: grid;
+    gap: var(--gap, 1rem);
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
