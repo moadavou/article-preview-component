@@ -1,1 +1,20 @@
-// Global styles
+@use "../abstracts/" as *;
+
+body {
+    background-color: var(--clr-neutral-200);
+}
+
+@include breakpoint {
+    main {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+    }
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--clr-neutral-600);
+    outline-offset: 2px;
+    border-radius: 3px;
+}

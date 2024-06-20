@@ -1,1 +1,29 @@
-// Typography styles
+@use "../abstracts/" as *;
+
+body {
+    font-family: "Manrope", sans-serif;
+    font-weight: 500;
+    font-size: var(--fs-400);
+    line-height: 1.54;
+    color: var(--clr-neutral-400);
+    letter-spacing: 0.12px;
+}
+
+.heading {
+    font-size: var(--fs-500);
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--clr-neutral-600);
+    letter-spacing: 0.2px;
+
+    @include breakpoint {
+        line-height: 1.4;
+        letter-spacing: 0.25px;
+    }
+}
+
+.accent-font {
+    text-transform: uppercase;
+    color: var(--clr-neutral-300);
+    letter-spacing: 5px;
+}

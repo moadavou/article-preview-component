@@ -1,0 +1,16 @@
+.author {
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    &__name {
+        font-weight: 700;
+        color: var(--clr-neutral-600);
+    }
+
+    &__date {
+        color: var(--clr-neutral-300);
+    }
+}

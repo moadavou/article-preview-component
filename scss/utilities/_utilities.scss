@@ -1,0 +1,9 @@
+.grid-center {
+    display: grid;
+    place-content: center;
+}
+
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}

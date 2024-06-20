@@ -23,60 +23,83 @@
             rel="stylesheet" />
 
         <!-- JavaScript -->
-        <script defer="script.js"></script>
+        <script defer src="script.js"></script>
     </head>
     <body>
         <main>
-            <div class="[ card ] [ even-columns ]">
+            <div class="[ card ] [ container ]">
                 <div>
                     <img
+                        class="[ card__img ]"
                         src="images/drawers.jpg"
                         alt="A dark green dresser with framed photos and a vase on top, set against a white brick wall." />
                 </div>
                 <div>
-                    <h1>
-                        Shift the overall look and feel by adding these
-                        wonderful touches to furniture in your home
-                    </h1>
-                    <p>
-                        Ever been in a room and felt like something was missing?
-                        Perhaps it felt slightly bare and uninviting. I’ve got
-                        some simple tips to help you make any room feel
-                        complete.
-                    </p>
-                    <div>
-                        <div class="[ even-columns ]">
+                    <div class="[ card__content ] [ flow ]">
+                        <h1 class="heading">
+                            Shift the overall look and feel by adding these
+                            wonderful touches to furniture in your home
+                        </h1>
+                        <p>
+                            Ever been in a room and felt like something was
+                            missing? Perhaps it felt slightly bare and
+                            uninviting. I’ve got some simple tips to help you
+                            make any room feel complete.
+                        </p>
+                    </div>
+                    <div class="[ card__footer ] [ flex ]">
+                        <div class="[ author ] [ flex ]">
                             <div>
                                 <img
                                     src="images/avatar-michelle.jpg"
                                     alt="Headshot of Michelle Appleton" />
                             </div>
                             <div>
-                                <p>Michelle Appleton</p>
-                                <p>28 Jun 2020</p>
+                                <p class="[ author__name ]">
+                                    Michelle Appleton
+                                </p>
+                                <p class="[ author__date ]">28 Jun 2020</p>
                             </div>
                         </div>
-                        <div>
+                        <div class="[ grid-center ]">
                             <button
+                                id="share-button"
+                                class="[ share-button ]"
                                 aria-label="Share this article on social media."
                                 aria-expanded="false"
-                                aria-controls="share-options">
-                                <img src="images/icon-share.svg" alt="" />
+                                aria-controls="share-button-popup">
+                                <svg
+                                    focusable="false"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="15"
+                                    height="13">
+                                    <path
+                                        d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z" />
+                                </svg>
                             </button>
-                        </div>
-                    </div>
-                    <div id="share-options" class="[ even-columns ]">
-                        <div><p>Share</p></div>
-                        <div>
-                            <a href="#" aria-label="Share on Facebook."
-                                ><img src="images/icon-facebook.svg" alt=""
-                            /></a>
-                            <a href="#" aria-label="Share on Twitter."
-                                ><img src="images/icon-twitter.svg" alt=""
-                            /></a>
-                            <a href="#" aria-label="Share on Pinterest."
-                                ><img src="images/icon-pinterest.svg" alt=""
-                            /></a>
+                            <div
+                                id="share-button-popup"
+                                class="[ share-button-popup ]">
+                                <div><p class="[ accent-font ]">Share</p></div>
+                                <div class="[ share-button-popup__links ]">
+                                    <a href="#" aria-label="Share on Facebook."
+                                        ><img
+                                            src="images/icon-facebook.svg"
+                                            alt=""
+                                    /></a>
+                                    <a href="#" aria-label="Share on Twitter."
+                                        ><img
+                                            src="images/icon-twitter.svg"
+                                            alt=""
+                                    /></a>
+                                    <a href="#" aria-label="Share on Pinterest."
+                                        ><img
+                                            src="images/icon-pinterest.svg"
+                                            alt=""
+                                    /></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

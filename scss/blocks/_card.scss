@@ -1,0 +1,54 @@
+@use "../abstracts/" as *;
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 40px 40px -10px hsla(var(--clr-neutral-250-hsl), 0.5);
+    margin-top: 4.63rem;
+    margin-bottom: 5.06rem;
+
+    @include breakpoint {
+        flex-direction: row;
+    }
+}
+
+.card__img {
+    width: 100%;
+    height: 100%;
+    max-height: 12.5rem;
+    object-fit: cover;
+    object-position: 0;
+    border-radius: 10px 10px 0 0;
+
+    @include breakpoint {
+        max-height: none;
+        border-radius: 10px 0 0 10px;
+    }
+}
+
+.card__content {
+    padding-inline: 32px;
+    padding-top: 2.25rem;
+    padding-bottom: 1.25rem;
+
+    @include breakpoint {
+        padding-inline: 40px;
+        padding-top: 2rem;
+    }
+}
+
+.card__footer {
+    position: relative;
+    justify-content: space-between;
+    padding-inline: 32px;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+
+    @include breakpoint {
+        padding-inline: 40px;
+        padding-top: 0;
+        padding-bottom: 2rem;
+    }
+}
