@@ -1,16 +1,17 @@
 .author {
-    img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-    }
+  flex-wrap: wrap;
+  img {
+    width: 2.5rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
 
-    &__name {
-        font-weight: 700;
-        color: var(--clr-neutral-600);
-    }
+  &__name {
+    font-weight: 700;
+    color: var(--clr-neutral-600);
+  }
 
-    &__date {
-        color: var(--clr-neutral-300);
-    }
+  &__date {
+    color: var(--clr-neutral-300);
+  }
 }

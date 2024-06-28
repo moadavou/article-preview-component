@@ -1,29 +1,29 @@
-@use "../abstracts" as *;
+@use '../abstracts' as *;
 
 :root {
-    // Create color variables from abstracts/colors
-    @each $color, $shades in $colors-hsl {
-        @each $shade, $value in $shades {
-            --clr-#{$color}-#{$shade}: hsl(var(--clr-#{$color}-#{$shade}-hsl));
-            --clr-#{$color}-#{$shade}-hsl: #{$value};
-        }
+  // Create color variables from abstracts/colors
+  @each $color, $shades in $colors-hsl {
+    @each $shade, $value in $shades {
+      --clr-#{$color}-#{$shade}: hsl(var(--clr-#{$color}-#{$shade}-hsl));
+      --clr-#{$color}-#{$shade}-hsl: #{$value};
+    }
+  }
+
+  // Create font-size variables from abstracts/type-scale
+  @each $screen-size, $font-size in $type-scale {
+    @if $screen-size == small {
+      @each $size, $value in $font-size {
+        --fs-#{$size}: #{$value};
+      }
     }
 
-    // Create font-size variables from abstracts/type-scale
-    @each $screen-size, $font-size in $type-scale {
-        @if $screen-size == small {
-            @each $size, $value in $font-size {
-                --fs-#{$size}: #{$value};
-            }
+    // Create media queries for font sizes using abstracts/breakpoints
+    @else {
+      @include breakpoint {
+        @each $size, $value in $font-size {
+          --fs-#{$size}: #{$value};
         }
-
-        // Create media queries for font sizes using abstracts/breakpoints
-        @else {
-            @include breakpoint {
-                @each $size, $value in $font-size {
-                    --fs-#{$size}: #{$value};
-                }
-            }
-        }
+      }
     }
+  }
 }
