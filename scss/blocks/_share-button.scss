@@ -18,6 +18,10 @@
     height: 0.81rem;
   }
 
+  &:focus-visible {
+    border-radius: 50%;
+  }
+
   &[aria-expanded='true'] {
     background-color: var(--clr-neutral-400);
     fill: white;
@@ -51,8 +55,8 @@
   width: 100%;
   bottom: 0;
   right: 0;
-  padding-left: 32px;
-  padding-right: calc(2rem + 32px);
+  padding-inline: 32px;
+  padding-block: 1.25rem;
   background-color: var(--clr-neutral-600);
   border-radius: 0 0 10px 10px;
   transition: opacity 200ms ease-in-out;
@@ -75,7 +79,6 @@
     bottom: 6rem;
     right: calc(40px + 1rem);
     transform: translateX(50%);
-    z-index: 1;
   }
 }
 
