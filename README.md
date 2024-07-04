@@ -4,17 +4,18 @@ This is a solution to the [Article preview component challenge on Frontend Mento
 
 ## Table of contents
 
--   [Overview](#overview)
-    -   [The challenge](#the-challenge)
-    -   [Screenshot](#screenshot)
-    -   [Links](#links)
--   [Setup & Usage](#setup--usage)
--   [My process](#my-process)
-    -   [Built with](#built-with)
-    -   [What I learned](#what-i-learned)
-    -   [Continued development](#continued-development)
-    -   [Useful resources](#useful-resources)
--   [Author](#author)
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [Setup & Usage](#setup--usage)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -22,8 +23,8 @@ This is a solution to the [Article preview component challenge on Frontend Mento
 
 Users should be able to:
 
--   View the optimal layout for the component depending on their device's screen size
--   See the social media share links when they click the share icon
+- View the optimal layout for the component depending on their device's screen size
+- See the social media share links when they click the share icon
 
 ### Screenshot
 
@@ -31,8 +32,8 @@ Users should be able to:
 
 ### Links
 
--   Repository URL: [GitHub](https://github.com/moadavou/article-preview-component)
--   Live Site URL: [GitHub Pages](https://moadavou.github.io/article-preview-component/)
+- Repository URL: [GitHub](https://github.com/moadavou/article-preview-component)
+- Live Site URL: [GitHub Pages](https://moadavou.github.io/article-preview-component/)
 
 ## Setup & Usage
 
@@ -42,83 +43,47 @@ Once the dependencies have been installed, you can run `npm start` to access the
 
 When the project is ready for deployment, run `npm run build` to compile the scss and sass files to css, minimize, autoprefix, and purge unwanted classes.
 
+### Available Scripts
+
+| Script           | Effect                                                                                             |
+| ---------------- | -------------------------------------------------------------------------------------------------- |
+| **sass:build**   | Compiles SASS files.                                                                               |
+| **sass:watch**   | Watches SASS files for changes and compiles them.                                                  |
+| **server**       | Starts a development server with BrowserSync.                                                      |
+| **start**        | Watches SASS files for changes and compiles them and starts a development server with BrowserSync. |
+| **purgecss**     | Removes unused CSS based on HTML and JS content.                                                   |
+| **postcss**      | Applies Autoprefixer and CSSNano optimizations to CSS files.                                       |
+| **build**        | Runs a complete build process including SASS compilation, CSS purging, and optimization.           |
+| **lint**         | Checks the codebase for linting issues using ESLint.                                               |
+| **lint:fix**     | Fixes linting issues where possible using ESLint.                                                  |
+| **prettier**     | Checks for formatting issues using Prettier.                                                       |
+| **prettier:fix** | Fixes formatting issues using Prettier.                                                            |
+| **format**       | A complete codebase format and lint fix using Prettier and ESLint.                                 |
+
 ## My process
 
 ### Built with
 
--   Semantic HTML5 markup
--   CSS custom properties
--   Flexbox
--   CSS Grid
--   Mobile-first workflow
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
 
-*   [CUBE CSS](https://cube.fyi/) - CSS methodology
-*   [Sass](https://sass-lang.com/) _(v1.77.2)_ - CSS pre-processor
+* [CUBE CSS](https://cube.fyi/) - CSS methodology
+* [Sass](https://sass-lang.com/) _(v1.77.2)_ - CSS pre-processor
 
 ### What I learned
 
-For this challenge, I had a few issues with the positioning of the image and the popup.
+I encountered some challenges with positioning the image and the popup for this project. I attempted to make the image adjust its size based on a parenting div, but I struggled with it. The image overflowed its container on mobile, while on larger screens, it appeared too small. Eventually, I opted to move all the styling directly to the image, which I have found to be an easier approach based on my past experience.
 
-**I tried to have the image adjust its size based on a parenting div**, but I had a hard time with it. On mobile, the image overflowed its container, and on larger screens, the image was too small. In the end, I decided to move all the styling directly to the image. This is the approach I have used in the past, and I found it way easier to work with.
+Working with `position: absolute;` elements for the popup was difficult for me as I'm not accustomed to it. It involved a lot of trial and error, and I realized that I need more practice with these kinds of elements. Additionally, I encountered issues with the popup on larger screens because it had to overflow the card. I initially set an `overflow: hidden;` on the card to automatically adjust the border radiuses of the elements on top of the card, but this approach didn't work due to the popup. Looking back, I could have planned this aspect better to save myself some time.
 
-_Finished code for the image:_
+Surprisingly, working with JavaScript was not difficult. Although I'm not used to the syntax and had to look up a few things, overall, it went smoothly.
 
-```css
-.card__img {
-    width: 100%;
-    height: 100%;
-    max-height: 12.5rem;
-    object-fit: cover;
-    object-position: 0;
-    border-radius: 10px 10px 0 0;
+The biggest challenge I faced was dealing with the popup. It doesn't follow the typical disclosure or modal patterns as it overlaps other elements on the page. I wanted to ensure that the popup didn't render the other content on the page inaccessible, so using a modal pattern was not an option. With assistance from a senior developer, I experimented with the `<dialog>` element to prevent access to the content behind the popup when it was open. However, I encountered issues with keyboard focus on smaller screens.
 
-    @include breakpoint {
-        max-height: none;
-        border-radius: 10px 0 0 10px;
-    }
-}
-```
-
-I'm not used to positioning `position: absolute;` elements, so **I found working with the popup difficult.** It was a lot of trial and error. I think I need more practice with these kinds of elements. In addition, I also had some issues with the popup on larger screens in regards to that it has to overflow the card. I had set an `overflow: hidden;` on the card to get the border radiuses on the elements on top of the card to adjust automatically. This approach did not work due to the popup. In hindsight, I could have planned this better to save myself some time.
-
-_Parts of the finished code for the share button popup:_
-
-```css
-.share-button-popup {
-    position: absolute;
-    align-items: center;
-    display: flex;
-    visibility: hidden;
-    opacity: 0;
-    gap: 1.31rem;
-    height: 100%;
-    width: 100%;
-    bottom: 0;
-    right: 0;
-    padding-left: 32px;
-    background-color: var(--clr-neutral-600);
-    border-radius: 0 0 10px 10px;
-    transition: opacity 200ms ease-in-out;
-    z-index: 1;
-}
-
-@include breakpoint {
-    .share-button-popup::after {
-        content: "";
-        position: absolute;
-        top: 3.4rem;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 0;
-        border-left: 16px solid transparent;
-        border-right: 16px solid transparent;
-        border-top: 16px solid var(--clr-neutral-600);
-    }
-}
-```
-
-Surprisingly, the JavaScript wasn't hard. I'm not used to the syntax, and I had to look up a few things. But overall, it went smoothly.
+Ultimately, I decided to use the `inert` attribute on the content behind the popup when it was active on mobile. Additionally, I made sure that the focus remained on the button when the popup opened, making it easier to close.
 
 ### Continued development
 
@@ -126,9 +91,15 @@ I need to work more with JavaScript (to get used to the syntax) and absolutely p
 
 ### Useful resources
 
--   [CSS Triangle](https://css-tricks.com/snippets/css/css-triangle/) - This helped me understand how to create a triangle in CSS and why it works.
+- [CSS Triangle](https://css-tricks.com/snippets/css/css-triangle/) - This helped me understand how to create a triangle in CSS and why it works.
+- [Using Prettier and ESLint for JavaScript formatting](https://blog.logrocket.com/using-prettier-eslint-javascript-formatting/#eslint-prettier-initial-configuration-basic-usage) - The article helped me understand how to add ESLint and Prettier to a project using Node.js.
+- [Let's Build an Accessible Disclosure](https://fedmentor.dev/posts/disclosure-ui/#styling-with-a11y-in-mind) - I used this guide as a foundation for creating the popup using a disclosure pattern.
 
 ## Author
 
--   Frontend Mentor - [@moadavou](https://www.frontendmentor.io/profile/moadavou)
--   LinkedIn - [@moadavou](https://www.linkedin.com/in/moadavou/)
+- Frontend Mentor - [@moadavou](https://www.frontendmentor.io/profile/moadavou)
+- LinkedIn - [@moadavou](https://www.linkedin.com/in/moadavou/)
+
+## Acknowledgments
+
+- [Grace Snow](https://github.com/grace-snow) was very helpful in showing me how to make the popup accessible.
